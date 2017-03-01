@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+
+#menu{ position:relative; width:1210px; margin:0 auto; }
+#nav{ position:absolute; z-index:100; }
+
+.cont .inner{ width:1210px; margin:0 auto;}
+.cont .top{ height:44px; background:#f2f2f2;line-height:44px; font-size:12px; }
+.cont .top .left{ float:left;}
+.cont .top .left li{ float:left;}
+.cont .top .left li span{ display:inline-block; padding:0px 11px; font-family:consolas;}
+.cont .top .right{ float:right;}
+.cont .top .right li{ float:left; padding-right:10px;}
+.cont .top .right li span{  width:54px; height:18px; color:#fff; background:#e4393c; border-radius:2px;padding:3px; margin-left:7px;}
+.cont .top .right li i{ display:inline-block; width:17px; height:18px; margin-right:5px; vertical-align:middle;}
+.cont .top .right li .icon1{ background:url(../images/sprite-gys-im.gif) left top no-repeat; margin-top:-3px;}
+.cont .top .right li .icon2{ background:url(../images/__sprite1.png) no-repeat left top; margin-top:-3px;}
+.cont .top .right li .icon3{ background:url(../images/__sprite1.png)  no-repeat -34px 2px; margin-top:-3px;}
+
+.cont .warp{ padding-top:10px; background-color:#f2f2f2; }
+.cont .warp .inner{ padding:10px; width:1190px;  background-color:#ffffff;}
+.cont .warp .pic{ float:left;}
+.cont .warp .pic .banner{ width:450px; height:450px; border:1px solid #eeeeee; font-size:0; position:relative;}
+.cont .warp .pic .banner i{ width:30px; height:30px; position:absolute; right:0; bottom:0; background:url(../images/__sprite3.png) no-repeat;}
+.cont .warp .pic .banner span{ width:305px; height:305px; background:#feeea7; opacity:0.3; position:absolute; left:0; top:0; display:none; cursor:move;}
+.cont .warp .pic .banner .mirror{ width:540px; height:540px; position:absolute; left:450px; top:0px; border:1px solid #eeeeee; overflow:hidden; display:none; z-index:5;}
+.cont .warp .pic .banner .mirror img{ position:absolute;}
+.cont .warp .pic_list{ margin:20px 0 18px 0; width:452px; height:58px; position:relative;}
+.cont .warp .pic_list a{position:absolute;}
+.cont .warp .pic_list a i{ width:22px; height:32px; display:block; background:url(../images/__sprite3.png) no-repeat;}
+.cont .warp .pic_list .arrow_prev{ left:0; top:13px;} 
+.cont .warp .pic_list .arrow_prev i{ background-position:-30px 0;}
+.cont .warp .pic_list .arrow_next{ right:0; top:13px;} 
+.cont .warp .pic_list .arrow_next i{ background-position:0 -30px;}
+.cont .warp .pic_list .pic_items{ width:390px; height:58px; position:absolute; left:31px; top:0; overflow:hidden;}
+.cont .warp .pic_list .pic_items ul{ width:2000px;}
+.cont .warp .pic_list .pic_items li{ float:left; margin:0px 10px; width:54px; height:54px; border:2px solid #fff;}
+.cont .warp .pic_list .pic_items li.ac{border-color:#e53e41;}
+
+.cont .warp .pic .preview-info{ width:452px; height:18px; line-height:18px; font-size:12px; font-family:"宋体";}
+.cont .warp .pic .preview-info .left_btn{ float:left;}
+.cont .warp .pic .preview-info .left_btn{ margin-right:2px;}
+.cont .warp .pic .preview-info .left_btn span{ font-style:normal;}
+.cont .warp .pic .preview-info .left_btn i{ background:url(../images/__sprite3.png) no-repeat; display:inline-block; vertical-align:middle;/* margin-right:5px;*/}
+.cont .warp .pic .preview-info .left_btn .follow i{ width:14px; height:13px; background-position:-52px -44px;}
+.cont .warp .pic .preview-info .left_btn .share i{ width:15px; height:14px; background-position:-52px -16px;}
+.cont .warp .pic .preview-info .left_btn .comp i{ width:15px; height:16px; background-position:-30px -32px;}
+.cont .warp .pic .preview-info .right_btn{ float:right;}
+
+.cont .warp .content{ float:left; padding-left:20px; width:718px;}
+.cont .warp .content h3{ padding-top:8px; height:30px; line-height:30px; font-size:16px;}
+.cont .warp .content p{ height:28px; line-height:28px; font-size:12px; font-family:'微软雅黑'; color:#e4393c;}
+.cont .warp .content .summary{ width:718px; background:#f7f7f7; padding:4px 0 15px 0; position:relative;}
+.cont .warp .content .summary dl{ color:#999; font-size:12px; font-family:"微软雅黑";}
+.cont .warp .content .summary dt{ width:67px; float:left; text-align:center;}
+.cont .warp .content .summary dd{ padding-left:3px; float:left; width:648px;}
+.cont .warp .content .summary .summary_price{ height:34px; line-height:34px;}
+.cont .warp .content .summary .summary_price dd{ font-size:20px; color:#e4393c; vertical-align:bottom; font-family:"Microsoft YaHei"}
+.cont .warp .content .summary .summary_price dd span{font-size:16px; margin-right:3px;}
+.cont .warp .content .summary .summary_price dd a{ font-size:12px; color:#005aa0; margin-left:3px;}
+.cont .warp .content .summary .summary_price dd a:hover{ color:#e4393c;}
+.cont .warp .content .summary .summary_promotion{ line-height:30px;}
+.cont .warp .content .summary_promotion li{ line-height:30px; width:568px;}
+.cont .warp .content .summary_promotion li span{ display:inline-block; padding:0 3px; border:1px solid #e4393c; height:22px; line-height:22px; margin-right:3px; color:#e4393c;}
+.cont .warp .content .summary_promotion li a:hover{ color:#e4393c;}
+.cont .warp .content .summary_info{ width:72px; height:34px; border-left:1px solid #e6e6e6; position:absolute; right:10px; top:8px; text-align:center;}
+.cont .warp .content .summary_info p{ height:16px; line-height:16px; font-size:12px; color:#999;}
+.cont .warp .content .summary_info a{ height:18px; line-height:18px; font-size:14px; color:#005ea7;}
+.cont .warp .content .summary_info a:hover{ color:#e4393c;}
+
+.cont .warp .content .summary_support{ height:87px; width:718px; padding:5px 0; border-bottom:1px dotted #dfdfdf;}
+.cont .warp .content .summary_support dl{ line-height:29px; color:#999; font-size:12px; font-family:"微软雅黑";}
+.cont .warp .content .summary_support dt{ width:67px; float:left; text-align:center;}
+.cont .warp .content .summary_support dd{ padding-left:3px; float:left; width:648px;}
+.cont .warp .content .summary_support dd a{ color:#5e69ad; margin:0 8px 0 3px;}
+.cont .warp .content .summary_support dd a i{ display:inline-block; width:16px; height:16px; background:url(../images/__sprite.png) no-repeat; vertical-align:middle; margin-right:4px;}
+.cont .warp .content .summary_support dd a .icon1{ background-position:-32px 0;}
+.cont .warp .content .summary_support dd a .icon2{ background-position:-16px -32px;}
+.cont .warp .content .summary_support .chosediyu li{ float:left; height:23px; margin:0 5px; color:#666666; line-height:23px;}
+.cont .warp .content .summary_support .chosediyu .peisong span{display:inline-block;width:15px;height:7px;overflow:hidden;line-height:0px;margin:0px 3px;font-size:16px;}
+.cont .warp .content .summary_support .chosediyu li ol{ margin-left:-7px;}
+.cont .warp .content .summary_support .chosediyu ol li{ float:left; color:#646fb0;}
+.cont .warp .content .summary_support .chosediyu ol li a{ padding:0 10px 0 10px; margin:0; line-height:22px;}
+.cont .warp .content .summary_support .chosediyu ol li i{ display:inline-block; width:15px; height:7px; overflow:hidden; line-height:0px; margin:0px 3px; font-size:16px;}
+
+.cont .warp .content .choose{ width:718px; padding:15px 0; }
+.cont .warp .content .choose dl{ height:34px; line-height:34px; color:#999; font-size:12px;/* font-family:"宋体";*/ margin-bottom:7px;}
+.cont .warp .content .choose dt{ width:67px; float:left; text-align:center;}
+.cont .warp .content .choose dd{ padding-left:3px; float:left; width:648px;}
+.cont .warp .content .choose dd a{ position:relative;  float:left; display:block; padding:0 13px; border:1px solid #cccccc; height:32px; margin-right:7px; margin-bottom:6px;}
+.cont .warp .content .choose dd a i{ position:absolute; right:0; bottom:0; width:10px; height:10px;background:url(../images/newicon20140910.png) no-repeat -202px -224px; display:none;}
+.cont .warp .content .choose dd a:hover{ border-color:#e3393c;}
+.cont .warp .content .choose dd .ac{position:relative; border:2px solid #e3393c; padding:0 11px; height:30px;}
+
+.cont .warp .content .choose dd em{ display:inline-block; width:16px; height:16px; background:url(../images/__sprite2.png) no-repeat 0 0; vertical-align:middle; cursor:pointer;}
+.cont .warp .content .choose .choose_color{ height:43px; line-height:43px}
+.cont .warp .content .choose .choose_color a{ height:41px; background:#f7f7f7; line-height:41px; position:relative; padding-left:48px;}
+.cont .warp .content .choose .choose_color i{ font-size:0; position:absolute; left:0; top:1px;}
+
+.cont .warp .content .choose .choose_baitiao{ margin-bottom:0px;}
+
+.cont .warp .content .choose_btns form{ float:left; padding:15px 0px 18px 10px; position:relative;}
+.cont .warp .content .choose_btns .number{ display:inline-block; width:33px; height:44px; line-height:44px; text-align:center; border:1px solid #cccccc; border-right:0px;}
+.cont .warp .content .choose_btns a{ display:inline-block; width:15px; height:22px; border:1px solid #cccccc; line-height:22px; text-align:center; background:#f1f1f1;}
+.cont .warp .content .choose_btns .add{ position:absolute; left:44px; top:15px;}
+.cont .warp .content .choose_btns .reduce{ position:absolute; left:44px; top:39px; border-top:none; height:21px;}
+.cont .warp .content .choose_btns .buyBtn { cursor:pointer; float:left; width:142px; height:46px; background:#df3033; color:#fff; text-align:center; line-height:46px; margin:15px 0 0 26px;}
+
+.cont .warp .content .text{ line-height:23px; margin-bottom:17px;}
+.cont .warp .content .text dl{ color:#999; font-size:12px; font-family:"微软雅黑";}
+.cont .warp .content .text dt{ width:67px; float:left; text-align:center;}
+.cont .warp .content .text dd{ float:left; margin-left:15px; font-size:12px; font-family:"微软雅黑";}
+.cont .warp .content .text dd a{ color:#005aa0;}
+.cont .warp .content .text dd a:hover{ color:#e4393c;}
+.cont .recommand{ padding-top:10px; border-top:1px solid #f2f2f2;}
+.cont .recommand .inner{border:1px solid #dddddd; border-top:none;}
+.cont .recommand .nav{ height:29px; background:#f7f7f7;  border-top:2px solid #999999;line-height:29px; border-bottom:1px solid #dddddd;}
+.cont .recommand .nav .nav_list{ float:left;}
+.cont .recommand .nav li{ float:left;}
+.cont .recommand .nav li a{ height:29px; padding:0px 25px; font-size:14px; margin-top:-1px; display:block; font-weight:bold;}
+/*.cont .recommand .nav li a:hover{ color:#e4393c;}*/
+.cont .recommand .nav .ac{height:35px; border-top:2px solid #e4393c; border-left:1ps solid #dddddd;border-right:1ps solid #dddddd; margin-top:-4px; background-color:#ffffff;}
+
+
+.cont .recommand .nav .ac a{ color:#e4393c;}
+.cont .recommand .nav .more{ float:right; font-size:12px; font-family:Consolas; margin-right:12px;}
+.cont .recommand .nav .more a:hover{ color:#e4393c;}
+.cont .recommand .content{ padding:20px 0 38px 21px; }
+.cont .recommand .content p{ height:36px; line-height:18px; font-size:12px; overflow:hidden;}
+.cont .recommand .content .left{ float:left; height:158px; width:136px; position:relative;}
+.cont .recommand .content .mid .arrow_prev{ width:23px; height:23px; background:url(../images/plus.png) no-repeat; display:block; position:absolute; left:25px; top:45px;}
+.cont .recommand .content .mid .arrow_next{ width:23px; height:23px; background:url(../images/equal.png) no-repeat; display:block; position:absolute; right:55px; top:45px;}
+
+
+.cont .recommand .content .mid{ float:left; height:158px; width:898px; position:relative;}
+.cont .recommand .content .mid_inner{ height:158px; width:720px; margin:0 97px 0 81px; overflow:hidden; position:relative;}
+.cont .recommand .content ul{ position:absolute; left:0;}
+.cont .recommand .content li{ float:left; height:158px; margin-right:10px; width:134px;}
+.cont .recommand .content .mid form{ font-size:12px; font-weight:bolder; color:#e4393c; line-height:18px; height:18px;}
+.cont .recommand .content .mid form input{ float:left; height:18px; margin-right:6px;}
+
+.cont .recommand .content .right{ width:150px; float:left; padding-top:11px; font-size:12px;}
+.cont .recommand .content .right p.one{ height:24px; line-height:24px;}
+.cont .recommand .content .right p.two{ height:38px; line-height:38px;}
+.cont .recommand .content .right p.two span{ font-size:18px; font-weight:bolder; margin-left:3px; color:#e4393c;}
+.cont .recommand .content .btn{ font-size:12px; color:#fff; background-color:#df3033; width:80px; height:28px; line-height:28px; text-align:center; cursor:pointer}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

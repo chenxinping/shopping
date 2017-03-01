@@ -1,0 +1,230 @@
+<!doctype html>
+<html >
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/content.css" rel="stylesheet" type="text/css">
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script>
+    var myapp = angular.module("myapp", ["ngRoute"])
+            .config(function ($routeProvider) {
+
+            });
+    // 创建一个代表购物车的service
+    myapp.factory("cartService", function () {
+                // 容器：相当于购物车的购物筐
+                var cart = [];
+                return {
+                    // 添加商品到购物车:商品对象{name:"方便面",price:8.00}
+                    // 需要判断购物车的数组中，之前是否已经加入过该商品
+                    // 如果之前已经加入过，则只需要修改购买数量
+                    add: function (product) {
+                        // 遍历数组，判断数组中是否有product
+                        // item:{product:product,number:3}
+                        for (var i = 0; i < cart.length; i++) {
+                            var item = cart[i];
+                            if (product.name == item.product.name) {
+                                // 说明之前添加过，这里只修改购买数量
+                                item.number++;
+                                return;
+                            }
+                        }
+
+                        // 如果能执行到这里，说明在购物车中没有找到该商品-新商品
+                        cart.push({product: product, number: 1});
+                    },
+                    // 从购物车中删除商品的方法
+                    remove: function (name) {
+                        // 遍历数组，判断数组中是否有product
+                        // item:{product:product,number:3}
+                        for (var i = 0; i < cart.length; i++) {
+                            var item = cart[i];
+                            if (name == item.product.name) {
+                                // 说明找到了要删除的商品，从数组中删除它
+                                cart.splice(i, 1);
+                                return;
+                            }
+                        }
+                    },
+                    // 查询购物车中所有商品的方法
+                    findAll: function () {
+                        return cart;
+                    },
+                    // 清空购物车
+                    clear: function () {
+                        cart.length = 0;
+                    }
+                };
+            });
+    myapp.controller("productCtrl",function($scope,cartService){
+        var carh=[];
+        var productList = {
+            "Apple mini2":{"name":"Apple mini2","price":1818.00,"imgsrc":"TB1_50x50.jpg"},
+            "[套装版]Apple mini2":{"name":"套装版]Apple mini2","price":1838.00,"imgsrc":"TB2_50x50.jpg"},
+            "Apple Ari2":{"name":"Apple Ari2","price":3200.00,"imgsrc":"TB3_50x50.jpg"}
+        };
+        $scope.products=productList;
+        $scope.add=function(product){
+            cartService.add(product);
+        }
+    });
+    myapp.controller("cartCtrl",function($scope,cartService){
+        $scope.cart=cartService.findAll();
+        // 删除购物车中商品的方法
+        $scope.remove = function (name) {
+            cartService.remove(name);
+        };
+
+        // 统计购买总数量
+        $scope.count = function () {
+            var total = 0;
+            angular.forEach($scope.cart, function (item) {
+                total += item.number;
+            });
+            return total;
+        };
+        // 计算购买总金额
+        $scope.money = function () {
+            var total = 0;
+            angular.forEach($scope.cart, function (item) {
+                total += item.number * item.product.price;
+            });
+            return total;
+        };
+        $scope.myVar=false;
+        $scope.toggle=function(){
+            $scope.myVar=!$scope.myVar;
+        }
+    });
+
+</script>
+</head>
+<body ng-app="myapp">
+<!--头部-->
+<div class="header">
+  <div class="h_top">
+    <div class="inner">
+      <ul class="right">
+        <li><a href="javascript:;" class="first left">你好，请登录</a><a href="javascript:;" class="active left">免费注册</a></li>
+        <li class="line"></li>
+        <li><a href="javascript:;">我的订单</a></li>
+        <li class="line"></li>
+        <li class="bg"><a href="javascript:;">我的京东<span>◇</span></a></li>
+        <li class="line"></li>
+        <li><a href="javascript:;">京东会员</a></li>
+        <li class="line"></li>
+        <li><a href="javascript:;">企业采购</a></li>
+        <li class="line"></li>
+        <li class="bg"><a href="javascript:;"><i></i>手机京东<span>◇</span></a></li>
+        <li class="line"></li>
+        <li class="bg"><a href="javascript:;">关注京东<span>◇</span></a></li>
+        <li class="line"></li>
+        <li class="bg"><a href="javascript:;">客户服务<span>◇</span></a></li>
+        <li class="line"></li>
+        <li class="bg"><a href="javascript:;">网站导航<span>◇</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="h_mid clearfix">
+    <div class="logo left"><a href="javascript:;"><img src="images/logo-201305.png"/></a></div>
+    <div class="search left">
+      <form>
+        <input type="text" class="text left" value="苹果7手机">
+        <input type="submit" class="submit" value="搜索">
+      </form>
+      <ul>
+        <li><a href="javascript:;" class="active_red">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+        <li><a href="javascript:;">圣诞礼物</a></li>
+      </ul>
+    </div>
+    <div  ng-controller="cartCtrl" class="buy right" style="position: relative;"><a href="javascript:;" ng-click="toggle()">我的购物车</a><i class="right">></i>
+      <div class="number">{{count()}}</div>
+      <div ng-show="myVar"  class="suibqi" style="width: 500px; background: #FFFFFF; position: absolute;">
+          <table cellspacing="0">
+              <tr>
+                  <td style="border: 1px solid red; padding: 5px 10px;">名称</td>
+                  <td style="border: 1px solid red; padding: 5px 10px;">价格</td>
+                  <td style="border: 1px solid red; padding: 5px 10px;">数量</td>
+                  <td style="border: 1px solid red; padding: 5px 10px;">删除</td>
+              </tr>
+              <tbody>
+                <tr ng-repeat="item in cart">
+                    <td style="border: 1px solid red; padding: 5px 10px;">{{item.product.name}}</td>
+                    <td style="border: 1px solid red; padding: 5px 10px;">{{item.product.price}}</td>
+                    <td style="border: 1px solid red; padding: 5px 10px;">{{item.number}}</td>
+                    <td ng-click="remove(item.product.name)" style="border: 1px solid red; padding: 5px 10px;">删除</td>
+                </tr>
+
+              </tbody>
+
+          </table>
+          <div>商品总价{{money()}}</div>
+          <div class="anniu">
+               <button>提交订单</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="h_bot clearfix">
+    <div class="nav left" id="classIfication">全部商品分类</div>
+    <ul class="left">
+      <li><a href="javascript:;">服装城</a></li>
+      <li><a href="javascript:;">美妆馆</a></li>
+      <li><a href="javascript:;">京东超市</a></li>
+      <li><a href="javascript:;">生鲜</a></li>
+      <li><a href="javascript:;">全球购</a></li>
+      <li><a href="javascript:;">闪购</a></li>
+      <li><a href="javascript:;">团购</a></li>
+      <li><a href="javascript:;">拍卖</a></li>
+      <li><a href="javascript:;">金融</a></li>
+    </ul>
+  </div>
+</div>
+<!--内容区-->
+<!--main-->
+<div class="cont">
+	<!--主导航下灰色区域-->
+	<div class="top">
+    	<div class="inner">
+        	<ul class="left">
+            	<li><a href="javascript:;">电脑整机</a><span>></span></li>
+            	<li><a href="javascript:;">笔记本</a><span>></span></li>
+            	<li><a href="javascript:;">Apple </a><span>></span></li>
+            	<li><a href="javascript:;">AppleMacBook Air</a></li>
+            </ul>
+            <ul class="right">
+            	<li><a href="javascript:;">京东Apple产品专营店</a><span>京东自营</span></li>
+            	<li><a href="javascript:;"><i class="icon1"></i>联系供应商</a></li>
+            	<li><a href="javascript:;"><i class="icon2"></i>JIMI</a></li>
+            	<li><a href="javascript:;"><i class="icon3"></i>关注店铺</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="zhongjian" style="height: 600px; width: 1210px;margin: 0 auto;">
+        <div class="youbian">
+            <img src="images/tupian11111_05.jpg"/>
+        </div>
+        <div class="jiage" style="height: 50px;">
+            <ul style="margin-top: 10px;" ng-controller="productCtrl">
+                <li  ng-repeat="product in products" style="float: left;  width: 250px;font-size: 20px; color: red; margin: 5px;">
+                    ￥{{product.price}}.00
+                    <a ng-click="add(product)" style="cursor: pointer;width: 100px; height: 50px; background: red; color: #FFFFFF; padding: 5px;" >加入购物车</a>
+                </li>
+            </ul>
+        </div>
+        <div class="xiamian">
+            <img src="images/tupian11111_08.jpg"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
